@@ -3478,6 +3478,8 @@ wax.g.connector.prototype.getTile = function(coord, zoom, ownerDocument) {
     var key = zoom + '/' + coord.x + '/' + coord.y;
     if (!this.cache[key]) {
         var img = this.cache[key] = new Image(256, 256);
+        img.style.height = '256px';
+        img.style.width = '256px';
         this.cache[key].src = this.getTileUrl(coord, zoom);
         this.cache[key].setAttribute('gTileKey', key);
         this.cache[key].onerror = function() { img.style.display = 'none'; };
